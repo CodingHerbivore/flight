@@ -8,7 +8,7 @@ def create_db():
     # Name, price, seats total, seats first class, cruise (knots), range, fuel (us gal, usable), runway (ft)
     c.execute("""CREATE TABLE planes (
               manufacturer text,
-              name text,
+              type text,
               price real,
               seats integer,
               fcseats integer,
@@ -22,12 +22,12 @@ create_db()
 
 def insert_plane(plane):
     with conn:
-        c.execute("INSERT INTO planes VALUES (:manufacturer, :name, :price, :seats, :fcseats, :cruise, :range, :fuel, :runway)",
-                  {'manufacturer': plane.manufacturer, 'name': plane.name, 'price': plane.price, 'seats': plane.seats, 'fcseats': plane.fcseats, 'cruise': plane.cruise, 'range': plane.range, 'fuel': plane.fuel, 'runway': plane.runway})
+        c.execute("INSERT INTO planes VALUES (:manufacturer, :type, :price, :seats, :fcseats, :cruise, :range, :fuel, :runway)",
+                  {'manufacturer': plane.manufacturer, 'type': plane.type, 'price': plane.price, 'seats': plane.seats, 'fcseats': plane.fcseats, 'cruise': plane.cruise, 'range': plane.range, 'fuel': plane.fuel, 'runway': plane.runway})
 
-def list_planes(manufacturer):
-    c.execute("SELECT * FROM planes WHERE manufacturer = :manufacturer", {'manufacturer': manufacturer})
-    return c.fetchall()
+def list_planes(q):
+    c.execute("SELECT * FROM planes")
+    
 
 def close_connection():
     conn.close()

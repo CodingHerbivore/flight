@@ -7,7 +7,7 @@ def load_planes():
     
     for i, row in df.iterrows():
         plane = Plane(row.manufacturer,
-                      row.name,
+                      row.type,
                       row.price,
                       row.seats,
                       row.fcseats,

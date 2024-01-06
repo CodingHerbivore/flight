@@ -1,3 +1,3 @@
-manufacturer,name,price,seats,fcseats,cruise,range,fuel,runway
+manufacturer,type,price,seats,fcseats,cruise,range,fuel,runway
 Boing,717-200,347000,106,8,444,2060,3679,5500
 Airbug,A318,520000,132,0,445,3570,6303,5840
