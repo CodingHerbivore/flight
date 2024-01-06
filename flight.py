@@ -1,16 +1,13 @@
 from classes.plane import Plane
+from db_setup import *
 from database import *
+
+load_planes()
 
 cash = 1000000
 currentPlane = None
 
-# Manufacturer, Name, price, seats total, seats first class, cruise (knots), range, fuel (us gal, usable),
-B717 = Plane("Boing","717-200", 347000, 106, 8, 444, 2060, 3679)
-A318 = Plane("Airbug", "A318", 520000, 132, 0, 445, 3570, 6303)
-planes = [B717, A318]
 
-for plane in planes:
-    insert_plane(plane)
 
 boing = list_planes("Boing")
 print(boing)
