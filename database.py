@@ -26,7 +26,9 @@ def insert_plane(plane):
                   {'manufacturer': plane.manufacturer, 'type': plane.type, 'price': plane.price, 'seats': plane.seats, 'fcseats': plane.fcseats, 'cruise': plane.cruise, 'range': plane.range, 'fuel': plane.fuel, 'runway': plane.runway})
 
 def list_planes(q):
-    c.execute("SELECT * FROM planes")
+    if q == 0:
+        c.execute("SELECT * FROM planes")
+        return c.fetchall()
     
 
 def close_connection():

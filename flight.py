@@ -9,7 +9,12 @@ cash = 1000000
 def purchase(cash):
     print("Aircraft available for purchase:")
     
-    list_planes()
+    available_planes = list_planes(0)
+
+    for plane in available_planes:
+        line = f'{plane[0]} {plane[1]}, Price: {plane[2]} {plane[3]} of seats, {plane[4]} of which are first class\n {plane[1]} has a cruising speed of {plane[5]}, with a range of {plane[6]} nautical miles and {plane[7]} gallons of fuel.\n\n'
+        
+        print(line)
 
     selectedPlane = int(input('Select aircraft\n')) - 1
 
